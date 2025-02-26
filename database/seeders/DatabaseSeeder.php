@@ -38,17 +38,17 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+            'email' => 'user@example.com',
+        ])->assignRole(RolesEnum::User);
 
         User::factory()->create([
             'name' => 'Test Commenter',
-            'email' => 'test@example.com',
-        ]);
+            'email' => 'commenter@example.com',
+        ])->assignRole(RolesEnum::Commenter);
 
         User::factory()->create([
             'name' => 'Test Admin',
-            'email' => 'test@example.com',
-        ]);
+            'email' => 'admin@example.com',
+        ])->assignRole(RolesEnum::Admin);
     }
 }
