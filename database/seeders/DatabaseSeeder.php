@@ -24,18 +24,20 @@ class DatabaseSeeder extends Seeder
             'name' => PermissionsEnum::ManageFeatures->value,
         ]);
 
-        $manageUsersPermission = Permission::create([
-            'name' => PermissionsEnum::ManageUsers->value,
-        ]);
-
         $manageCommentsPermission = Permission::create([
             'name' => PermissionsEnum::ManageComments->value,
         ]);
 
-        $upvoteDownvotePermission = Permission::create([
+        $manageUsersPermission= Permission::create([
+            'name' => PermissionsEnum::ManageUsers->value,
+        ]);
+
+        $upvoteDownvotePermission= Permission::create([
             'name' => PermissionsEnum::UpvoteDownvote->value,
         ]);
 
+
+        
         // *** gives necessary permissions to each roles *** //
         $adminRole->syncPermissions([
             $manageFeaturesPermission, 
