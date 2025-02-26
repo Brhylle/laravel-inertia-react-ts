@@ -36,6 +36,17 @@ class DatabaseSeeder extends Seeder
             'name' => PermissionsEnum::UpvoteDownvote->value,
         ]);
 
+        // *** gives necessary permissions to each roles *** //
+        $adminRole->syncPermissions([
+            $manageFeaturesPermission, 
+            $manageUsersPermission, 
+            $manageCommentsPermission, 
+            $upvoteDownvotePermission
+        ]);
+        $userRole->syncPermissions([$upvoteDownvotePermission]);
+        $commenterRole->syncPermissions([$manageCommentsPermission, $upvoteDownvotePermission]);
+
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'user@example.com',
